@@ -1,0 +1,3 @@
+#!/bin/bash
+url=$(wget -O - `wget -O - https://nifi.apache.org/download.html |   grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' |   sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | grep 'nifi-1.9.2-bin.tar.gz' | grep 'http' | head -1` |   grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' |   sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | grep 'nifi-1.9.2-bin.tar.gz' | grep 'http' | head -1)
+wget $url
